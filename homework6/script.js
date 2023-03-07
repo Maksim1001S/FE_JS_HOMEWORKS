@@ -146,13 +146,21 @@ const students_nameStartingWith_S = students
 
 console.log(students_nameStartingWith_S);
 // 6. Создайте новый массив, который содержит информацию о студентах в следующем формате: { name: "John Doe", major: "Computer Science" }.
-const pick = (obj) => Object.fromEntries([["name", `${obj.firstname} ${obj.lastname}`], ["major", `${obj.major}`]]);
-const student_major1 = students.map(el => pick(el));
+const pick = (obj) =>
+  Object.fromEntries([
+    ["name", `${obj.firstname} ${obj.lastname}`],
+    ["major", `${obj.major}`],
+  ]);
+const student_major1 = students.map((el) => pick(el));
 
 console.log(student_major1);
+
+const students_info = students.map((el) => ({
+  name: `${el.firstname} ${el.lastname}`,
+  major: el.major,
+}));
 // 7. Создайте новый массив, где студенты будут отсортированны по среднему баллу (по убыванию)
 const students_sorted_by_avgGrade = [...students];
 students_sorted_by_avgGrade.sort((a, b) => b.avg_grade - a.avg_grade);
 
 console.log(students_sorted_by_avgGrade);
-
